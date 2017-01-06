@@ -1,0 +1,3 @@
+.main-header,a:hover,a:focus {color: deeppink; font-family:sans-serif;font-weight: 100;color:#CACACA;text-decoration:none}
+
+.main-headet,a:focus{outline:thin;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}

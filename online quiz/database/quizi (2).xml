@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.5.1
+- https://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Jun 28, 2016 at 08:16 PM
+- Server version: 10.1.10-MariaDB
+- PHP Version: 7.0.4
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="quizi" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="checksolu">
+                CREATE TABLE `checksolu` (
+                  `qid` int(11) NOT NULL,
+                  `question` varchar(60) NOT NULL,
+                  `ans` int(11) NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="course">
+                CREATE TABLE `course` (
+                  `courseid` varchar(30) NOT NULL,
+                  `coursename` varchar(30) NOT NULL,
+                  PRIMARY KEY (`courseid`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="play">
+                CREATE TABLE `play` (
+                  `course` varchar(10) NOT NULL,
+                  `sem` int(11) NOT NULL,
+                  `sub` varchar(50) NOT NULL,
+                  `question` varchar(150) NOT NULL,
+                  `opt1` varchar(50) NOT NULL,
+                  `opt2` varchar(50) NOT NULL,
+                  `opt3` varchar(50) NOT NULL,
+                  `opt4` varchar(50) NOT NULL,
+                  `ans` int(11) NOT NULL,
+                  `qno` int(11) NOT NULL AUTO_INCREMENT,
+                  PRIMARY KEY (`qno`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="semister">
+                CREATE TABLE `semister` (
+                  `sem` int(11) NOT NULL,
+                  PRIMARY KEY (`sem`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="subject">
+                CREATE TABLE `subject` (
+                  `subjectid` varchar(30) NOT NULL,
+                  `sem` varchar(2) NOT NULL,
+                  `subject` varchar(30) NOT NULL,
+                  `course` varchar(30) NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="userrecord">
+                CREATE TABLE `userrecord` (
+                  `user_id` varchar(40) NOT NULL,
+                  `course` varchar(20) NOT NULL,
+                  `semister` int(11) NOT NULL,
+                  `subject` varchar(20) NOT NULL,
+                  `score` int(11) NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="users">
+                CREATE TABLE `users` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(30) NOT NULL,
+                  `course` varchar(20) NOT NULL,
+                  `semister` int(11) NOT NULL,
+                  `email` varchar(50) NOT NULL,
+                  `password` varchar(20) NOT NULL,
+                  `location` varchar(60) NOT NULL DEFAULT 'userimages/shanky.jpg',
+                  `usn` varchar(10) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  UNIQUE KEY `email` (`email`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'quizi'
+    -->
+    <database name="quizi">
+        <!-- Table checksolu -->
+        <table name="checksolu">
+            <column name="qid">3</column>
+            <column name="question">what is xml</column>
+            <column name="ans">3</column>
+        </table>
+        <!-- Table course -->
+        <table name="course">
+            <column name="courseid">MBA</column>
+            <column name="coursename">MBA</column>
+        </table>
+        <table name="course">
+            <column name="courseid">MCA</column>
+            <column name="coursename">MCA</column>
+        </table>
+        <!-- Table play -->
+        <table name="play">
+            <column name="course">MCA</column>
+            <column name="sem">1</column>
+            <column name="sub">c</column>
+            <column name="question">question1</column>
+            <column name="opt1">op1</column>
+            <column name="opt2">op2</column>
+            <column name="opt3">op3</column>
+            <column name="opt4">op4</column>
+            <column name="ans">1</column>
+            <column name="qno">1</column>
+        </table>
+        <table name="play">
+            <column name="course">MCA</column>
+            <column name="sem">1</column>
+            <column name="sub">c</column>
+            <column name="question">value of a in a=(b=5,b+5); is</column>
+            <column name="opt1">junk value</column>
+            <column name="opt2">syntax error</column>
+            <column name="opt3">5</column>
+            <column name="opt4">10</column>
+            <column name="ans">2</column>
+            <column name="qno">2</column>
+        </table>
+        <table name="play">
+            <column name="course">MCA</column>
+            <column name="sem">2</column>
+            <column name="sub">java</column>
+            <column name="question">what is xml</column>
+            <column name="opt1">op1.rng</column>
+            <column name="opt2">op2.rng</column>
+            <column name="opt3">op.extensible markup languge</column>
+            <column name="opt4">op4.ffdfd</column>
+            <column name="ans">3</column>
+            <column name="qno">3</column>
+        </table>
+        <table name="play">
+            <column name="course">MCA</column>
+            <column name="sem">3</column>
+            <column name="sub">operating system</column>
+            <column name="question">question mca 3 sem</column>
+            <column name="opt1">op1</column>
+            <column name="opt2">op2</column>
+            <column name="opt3">op3</column>
+            <column name="opt4">op4</column>
+            <column name="ans">4</column>
+            <column name="qno">4</column>
+        </table>
+        <table name="play">
+            <column name="course">MCA</column>
+            <column name="sem">3</column>
+            <column name="sub">operating system</column>
+            <column name="question">question mca 3 sem</column>
+            <column name="opt1">op1</column>
+            <column name="opt2">op2</column>
+            <column name="opt3">op3</column>
+            <column name="opt4">op4</column>
+            <column name="ans">4</column>
+            <column name="qno">5</column>
+        </table>
+        <table name="play">
+            <column name="course">MBA</column>
+            <column name="sem">2</column>
+            <column name="sub">Accounts</column>
+            <column name="question">mba question 2 sem</column>
+            <column name="opt1">op1</column>
+            <column name="opt2">op2</column>
+            <column name="opt3">op3</column>
+            <column name="opt4">op4</column>
+            <column name="ans">1</column>
+            <column name="qno">6</column>
+        </table>
+        <table name="play">
+            <column name="course">MBA</column>
+            <column name="sem">1</column>
+            <column name="sub">management</column>
+            <column name="question">mba question 1 sem</column>
+            <column name="opt1">op1</column>
+            <column name="opt2">op2</column>
+            <column name="opt3">op3</column>
+            <column name="opt4">op4</column>
+            <column name="ans">3</column>
+            <column name="qno">7</column>
+        </table>
+        <table name="play">
+            <column name="course">MBA</column>
+            <column name="sem">1</column>
+            <column name="sub">manage 2</column>
+            <column name="question">mba manage question 1 sem</column>
+            <column name="opt1">op1</column>
+            <column name="opt2">op2</column>
+            <column name="opt3">op3</column>
+            <column name="opt4">op4</column>
+            <column name="ans">2</column>
+            <column name="qno">8</column>
+        </table>
+        <table name="play">
+            <column name="course">MCA</column>
+            <column name="sem">3</column>
+            <column name="sub">C++</column>
+            <column name="question">How do we define constructor?</column>
+            <column name="opt1">a.x~(){}</column>
+            <column name="opt2">b.x(){}~</column>
+            <column name="opt3">c.x()~{}</column>
+            <column name="opt4">d.x~(){}</column>
+            <column name="ans">3</column>
+            <column name="qno">9</column>
+        </table>
+        <table name="play">
+            <column name="course">MCA</column>
+            <column name="sem">3</column>
+            <column name="sub">c++</column>
+            <column name="question">Which of the following is not a valid condition inclusion in preprocessor directives</column>
+            <column name="opt1">#ifdef</column>
+            <column name="opt2">#ifundef</column>
+            <column name="opt3">#endif</column>
+            <column name="opt4">#elif</column>
+            <column name="ans">1</column>
+            <column name="qno">10</column>
+        </table>
+        <table name="play">
+            <column name="course">MCA</column>
+            <column name="sem">3</column>
+            <column name="sub">C++</column>
+            <column name="question">The statement i++, is equivalent to</column>
+            <column name="opt1">i=i+i;</column>
+            <column name="opt2">i=i+1</column>
+            <column name="opt3">i=i-1;</column>
+            <column name="opt4">i--;</column>
+            <column name="ans">1</column>
+            <column name="qno">11</column>
+        </table>
+        <table name="play">
+            <column name="course">MCA</column>
+            <column name="sem">3</column>
+            <column name="sub">C++</column>
+            <column name="question">Minimum number of temporary variable needed to swap the contents of 2 variable is.</column>
+            <column name="opt1">1</column>
+            <column name="opt2">2</column>
+            <column name="opt3">3</column>
+            <column name="opt4">0</column>
+            <column name="ans">0</column>
+            <column name="qno">12</column>
+        </table>
+        <table name="play">
+            <column name="course">MCA</column>
+            <column name="sem">3</column>
+            <column name="sub">C++</column>
+            <column name="question">which looping process is best used when the number of iterations is known?</column>
+            <column name="opt1">for</column>
+            <column name="opt2">while</column>
+            <column name="opt3">do-while</column>
+            <column name="opt4">all looping process</column>
+            <column name="ans">3</column>
+            <column name="qno">13</column>
+        </table>
+        <!-- Table semister -->
+        <table name="semister">
+            <column name="sem">1</column>
+        </table>
+        <table name="semister">
+            <column name="sem">2</column>
+        </table>
+        <table name="semister">
+            <column name="sem">3</column>
+        </table>
+        <table name="semister">
+            <column name="sem">4</column>
+        </table>
+        <table name="semister">
+            <column name="sem">5</column>
+        </table>
+        <table name="semister">
+            <column name="sem">6</column>
+        </table>
+        <!-- Table subject -->
+        <table name="subject">
+            <column name="subjectid"></column>
+            <column name="sem"></column>
+            <column name="subject"></column>
+            <column name="course"></column>
+        </table>
+        <table name="subject">
+            <column name="subjectid">c</column>
+            <column name="sem">1</column>
+            <column name="subject">c</column>
+            <column name="course">MCA</column>
+        </table>
+        <table name="subject">
+            <column name="subjectid">java</column>
+            <column name="sem">2</column>
+            <column name="subject">java</column>
+            <column name="course">MCA</column>
+        </table>
+        <table name="subject">
+            <column name="subjectid">management </column>
+            <column name="sem">1</column>
+            <column name="subject">management</column>
+            <column name="course">MBA</column>
+        </table>
+        <table name="subject">
+            <column name="subjectid">operating system</column>
+            <column name="sem">3</column>
+            <column name="subject">operating system</column>
+            <column name="course">MCA</column>
+        </table>
+        <table name="subject">
+            <column name="subjectid">Accounts</column>
+            <column name="sem">2</column>
+            <column name="subject">Accounts</column>
+            <column name="course">MBA</column>
+        </table>
+        <table name="subject">
+            <column name="subjectid">Manage 2</column>
+            <column name="sem">1</column>
+            <column name="subject">Manage 2</column>
+            <column name="course">MBA</column>
+        </table>
+        <table name="subject">
+            <column name="subjectid">c++</column>
+            <column name="sem">3</column>
+            <column name="subject">C++</column>
+            <column name="course">MCA</column>
+        </table>
+        <!-- Table userrecord -->
+        <table name="userrecord">
+            <column name="user_id">shashankocean@gmail.com</column>
+            <column name="course">MCA</column>
+            <column name="semister">1</column>
+            <column name="subject">c</column>
+            <column name="score">5</column>
+        </table>
+        <table name="userrecord">
+            <column name="user_id">shashankocean@gmail.com</column>
+            <column name="course">MCA</column>
+            <column name="semister">2</column>
+            <column name="subject">java</column>
+            <column name="score">5</column>
+        </table>
+        <table name="userrecord">
+            <column name="user_id"></column>
+            <column name="course"></column>
+            <column name="semister">0</column>
+            <column name="subject"></column>
+            <column name="score">0</column>
+        </table>
+        <table name="userrecord">
+            <column name="user_id">shashankocean@gmail.com</column>
+            <column name="course">MCA</column>
+            <column name="semister">3</column>
+            <column name="subject">operating system</column>
+            <column name="score">5</column>
+        </table>
+        <table name="userrecord">
+            <column name="user_id">shanky@gmail.com</column>
+            <column name="course">MCA</column>
+            <column name="semister">1</column>
+            <column name="subject">c</column>
+            <column name="score">5</column>
+        </table>
+        <table name="userrecord">
+            <column name="user_id">shanky@gmail.com</column>
+            <column name="course">MCA</column>
+            <column name="semister">2</column>
+            <column name="subject">java</column>
+            <column name="score">5</column>
+        </table>
+        <table name="userrecord">
+            <column name="user_id">shiva@yahoo.com</column>
+            <column name="course">MBA</column>
+            <column name="semister">4</column>
+            <column name="subject">Accounts</column>
+            <column name="score">5</column>
+        </table>
+        <table name="userrecord">
+            <column name="user_id">rakesh@gmail.com</column>
+            <column name="course">MCA</column>
+            <column name="semister">3</column>
+            <column name="subject">C  </column>
+            <column name="score">0</column>
+        </table>
+        <table name="userrecord">
+            <column name="user_id">user1@gmail.com</column>
+            <column name="course">MCA</column>
+            <column name="semister">2</column>
+            <column name="subject">java</column>
+            <column name="score">5</column>
+        </table>
+        <table name="userrecord">
+            <column name="user_id">user1@gmail.com</column>
+            <column name="course">MCA</column>
+            <column name="semister">1</column>
+            <column name="subject">c</column>
+            <column name="score">5</column>
+        </table>
+        <!-- Table users -->
+        <table name="users">
+            <column name="id">1</column>
+            <column name="name">shashank</column>
+            <column name="course">MCA</column>
+            <column name="semister">2</column>
+            <column name="email">shashankocean@gmail.com</column>
+            <column name="password">12345</column>
+            <column name="location">userimages/IMG-20141024-WA0006.jpg</column>
+            <column name="usn">1nh14mca</column>
+        </table>
+        <table name="users">
+            <column name="id">2</column>
+            <column name="name">shiva</column>
+            <column name="course">MBA</column>
+            <column name="semister">4</column>
+            <column name="email">shiva@yahoo.com</column>
+            <column name="password">123456</column>
+            <column name="location"></column>
+            <column name="usn">1nz14MBA</column>
+        </table>
+        <table name="users">
+            <column name="id">4</column>
+            <column name="name">shanky</column>
+            <column name="course">MCA</column>
+            <column name="semister">3</column>
+            <column name="email">shanky@gmail.com</column>
+            <column name="password">12345</column>
+            <column name="location">userimages/SKYPE.JPG</column>
+            <column name="usn">1nz14mca</column>
+        </table>
+        <table name="users">
+            <column name="id">5</column>
+            <column name="name">shiva</column>
+            <column name="course">mca</column>
+            <column name="semister">2</column>
+            <column name="email">shiva@gmail.com</column>
+            <column name="password">12345</column>
+            <column name="location">userimages/shanky.jpg</column>
+            <column name="usn">1nz1544</column>
+        </table>
+        <table name="users">
+            <column name="id">6</column>
+            <column name="name">rakesh</column>
+            <column name="course">MBA</column>
+            <column name="semister">3</column>
+            <column name="email">rakesh@gmail.com</column>
+            <column name="password">12345</column>
+            <column name="location">userimages/shanky.jpg</column>
+            <column name="usn">inz15MBA50</column>
+        </table>
+        <table name="users">
+            <column name="id">7</column>
+            <column name="name">user1</column>
+            <column name="course">MCA</column>
+            <column name="semister">2</column>
+            <column name="email">user1@gmail.com</column>
+            <column name="password">user</column>
+            <column name="location">userimages/shanky.jpg</column>
+            <column name="usn">1nz14mca33</column>
+        </table>
+    </database>
+</pma_xml_export>
